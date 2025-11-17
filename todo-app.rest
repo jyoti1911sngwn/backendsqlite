@@ -42,3 +42,12 @@ Content-Type: application/json
     "completed" : 1
 }
 
+###DELETE todo
+POST http://localhost:5003/todos/2
+Authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzYzMzkyMDE1LCJleHAiOjE3NjM0Nzg0MTV9.fnttgYpvWhovQLBrCCPNVQVdBnimwaek37xKvRfMzO8"
+Content-Type: application/json
+
+{
+    "completed" : 1
+}
+

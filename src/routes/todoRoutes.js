@@ -29,8 +29,25 @@ router.put('/:id', (req, res)=>{
 })
 
 //delete a todo 
-router.delete('/:id', (req, res)=>{
+router.delete('/:id', (req, res) => {
+    const { id } = req.params;
+    const userId = req.userId;
 
-})
+    try {
+        const deleteTodo = db.prepare(`DELETE FROM todos WHERE id = ? AND user_id = ?`);
+        const result = deleteTodo.run(id, userId);
+
+        if (result.changes === 0) {
+            return res.status(404).json({ message: "Todo not found or not yours" });
+        }
+
+        return res.status(200).json({ message: "Todo deleted successfully" });
+
+    } catch (error) {
+        console.error("Delete error:", error);
+        return res.status(500).json({ message: "Internal server error" });
+    }
+});
+
 
 export default router;
