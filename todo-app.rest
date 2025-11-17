@@ -1,20 +1,44 @@
 ### GET /
-GET http://localhost:5000
+GET http://localhost:5003
 
 ### REGISTER user 
-POST http://localhost:5000/auth/register
+POST http://localhost:5003/auth/register
 Content-Type: application/json
 
 {
-    "username" : "abc123",
-    "password" : "abc123"
+    "username" : "abc1234",
+    "password" : "abc1234"
 }
 
 ###LOGIN user
-POST http://localhost:5000/auth/login
+POST http://localhost:5003/auth/login
 Content-Type: application/json
 
 {
-    "username" : "abc123",
-    "password" : "abc123"
+    "username" : "abc1234",
+    "password" : "abc1234"
 }
+
+###GET Todo
+GET http://localhost:5003/todos
+Authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzYzMzkyNzUyLCJleHAiOjE3NjM0NzkxNTJ9.00TTf4TfE7KhAleb9oplvY_DirTqaAGPgE5f7ix43ko"
+
+
+###CREATE todo
+POST http://localhost:5003/todos
+Authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzYzMzkyMDE1LCJleHAiOjE3NjM0Nzg0MTV9.fnttgYpvWhovQLBrCCPNVQVdBnimwaek37xKvRfMzO8"
+Content-Type: application/json
+
+{
+    "task" : "do today"
+}
+
+###PUT todo
+POST http://localhost:5003/todos/2
+Authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzYzMzkyMDE1LCJleHAiOjE3NjM0Nzg0MTV9.fnttgYpvWhovQLBrCCPNVQVdBnimwaek37xKvRfMzO8"
+Content-Type: application/json
+
+{
+    "completed" : 1
+}
+
